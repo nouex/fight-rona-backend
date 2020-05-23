@@ -1,0 +1,15 @@
+{
+  "name": "fight-rona-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "source .env && node index"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.682.0",
+    "express": "^4.17.1"
+  }
+}
