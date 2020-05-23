@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "source .env && node index"
+    "start": "source .env && node index",
+    "ubuntu-start": ". .env && node index"
   },
   "author": "",
   "license": "ISC",
