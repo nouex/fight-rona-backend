@@ -7,6 +7,7 @@ require("assert").notEqual(SECRET_KEY, undefined, "SECRET_KEY is not set")
 
 const AWS = require('aws-sdk');
 const express = require('express')
+const cors = require("cors")
 const app = express()
 const port = 3000
 
@@ -14,6 +15,8 @@ const s3 = new AWS.S3({
     accessKeyId: ACCESS_KEY,
     secretAccessKey: SECRET_KEY
   });
+
+app.use(cors())
 
 app.get('/', (req, res) => {
   const clicks = +req.query.clicks
