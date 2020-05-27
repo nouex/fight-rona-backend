@@ -5,11 +5,19 @@ const SECRET_KEY = process.env.SECRET_KEY
 require("assert").notEqual(ACCESS_KEY, undefined, "ACCESS_KEY is not set")
 require("assert").notEqual(SECRET_KEY, undefined, "SECRET_KEY is not set")
 
+const https = require('https');
+const http = require('http');
+const fs = require("fs")
+
 const AWS = require('aws-sdk');
 const express = require('express')
 const cors = require("cors")
 const app = express()
-const port = 3000
+
+const options = {
+  key: fs.readFileSync('./key.pem'),
+  cert: fs.readFileSync('./cert.pem')
+}
 
 const s3 = new AWS.S3({
     accessKeyId: ACCESS_KEY,
@@ -51,4 +59,5 @@ app.get('/', (req, res) => {
   });
 })
 
-app.listen(port, () => console.log(`Listening at http://localhost:${port}`))
+http.createServer(app).listen(3000, () => console.log(`Listening...`))
+https.createServer(options, app).listen(3001, () => console.log(`Listening...`))
