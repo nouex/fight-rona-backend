@@ -29,7 +29,7 @@ app.use(cors())
 app.get('/', (req, res) => {
   const clicks = +req.query.clicks
 
-  if (isNaN(clicks) {
+  if (isNaN(clicks)) {
     res.send("Error: clicks should be a number, received", req.query.clicks)
     return
   }
