@@ -29,6 +29,11 @@ app.use(cors())
 app.get('/', (req, res) => {
   const clicks = +req.query.clicks
 
+  if (typeof clicks !== "number") {
+    res.send("Error: clicks should be a number, received", clicks)
+    return
+  }
+
   const bucketName = 'fight-rona'
   const keyName = 'click-count.json';
   const params = {Bucket: bucketName, Key: keyName};
@@ -59,5 +64,5 @@ app.get('/', (req, res) => {
   });
 })
 
-http.createServer(app).listen(3000, () => console.log(`Listening...`))
-https.createServer(options, app).listen(443, () => console.log(`Listening...`))
+http.createServer(app).listen(80, () => console.log(`HTTP listening...`))
+https.createServer(options, app).listen(443, () => console.log(`HTTPS listening...`))
