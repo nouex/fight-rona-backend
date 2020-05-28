@@ -29,8 +29,8 @@ app.use(cors())
 app.get('/', (req, res) => {
   const clicks = +req.query.clicks
 
-  if (typeof clicks !== "number") {
-    res.send("Error: clicks should be a number, received", clicks)
+  if (isNaN(clicks) {
+    res.send("Error: clicks should be a number, received", req.query.clicks)
     return
   }
 
