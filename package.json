@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "source .env && node index",
-    "ubuntu-start": ". .env && node index"
+    "ubuntu-start": ". /root/fight-rona-backend/.env && node index"
   },
   "author": "",
   "license": "ISC",
