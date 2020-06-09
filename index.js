@@ -14,10 +14,10 @@ const express = require('express')
 const cors = require("cors")
 const app = express()
 
-const options = {
-  key: fs.readFileSync('./key.pem'),
-  cert: fs.readFileSync('./cert.pem')
-}
+// const options = {
+//   key: fs.readFileSync('./key.pem'),
+//   cert: fs.readFileSync('./cert.pem')
+// }
 
 const s3 = new AWS.S3({
     accessKeyId: ACCESS_KEY,
@@ -65,4 +65,4 @@ app.get('/', (req, res) => {
 })
 
 http.createServer(app).listen(80, () => console.log(`HTTP listening...`))
-https.createServer(options, app).listen(443, () => console.log(`HTTPS listening...`))
+// https.createServer(options, app).listen(443, () => console.log(`HTTPS listening...`))
